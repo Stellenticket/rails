@@ -11,6 +11,10 @@ module ActiveRecord
         type.serialize(value)
       end
 
+      def type_cast_where_array?(attr_name)
+        types.type_for_attribute(attr_name.to_s).type_cast_where_array?
+      end
+
       protected
 
       attr_reader :types

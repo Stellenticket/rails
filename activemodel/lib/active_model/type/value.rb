@@ -50,6 +50,9 @@ module ActiveModel
         value.inspect
       end
 
+      def type_cast_where_array?
+      end
+
       # These predicates are not documented, as I need to look further into
       # their use, and see if they can be removed entirely.
       def binary? # :nodoc:

@@ -6,6 +6,9 @@ module ActiveRecord
       end
 
       def call(attribute, value)
+        if attribute.relation.send(:type_caster).type_cast_where_array?(attribute.name)
+          value = Array.wrap(attribute.type_cast_for_database(value))
+        end
         values = value.map { |x| x.is_a?(Base) ? x.id : x }
         nils, values = values.partition(&:nil?)
 

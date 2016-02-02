@@ -12,6 +12,9 @@ module ActiveRecord
         connection.type_cast_from_column(column, value)
       end
 
+      def type_cast_where_array?(_attr_name)
+      end
+
       protected
 
       attr_reader :table_name
